@@ -13,14 +13,13 @@ import org.testng.annotations.Test;
 
 public class ValidLogIn {
 
-    private WebDriver driver;
     private LoginPage loginPage;
     private Pages.HomePage HomePage;
 
     @BeforeTest
     public void setUp() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         loginPage = new LoginPage(driver);
         HomePage = new HomePage(driver);
@@ -36,6 +35,7 @@ public class ValidLogIn {
         loginPage.enterPassword("qwertyauto123");
         loginPage.clickNextAfterPassword();
         loginPage.userEmail();
+        loginPage.checkSuccessfulLogin();
     }
 
     @AfterTest
