@@ -19,8 +19,20 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//span[text()='Войти']")
     public WebElement loginBtn;
 
+    @FindBy(xpath = "//span[text()='@Anton41505806']")
+    public WebElement checkCorrectLogin;
 
-    public  LoginPage enterEmail(String Login){
+    public void checkCorrectLogin(){
+        Assert.assertTrue(checkCorrectLogin.isDisplayed());
+    }
+
+
+    public LoginPage loginBtn(){
+        loginBtn.click();
+        return this;
+    }
+
+    public LoginPage enterEmail(String Login){
         inputEmail.sendKeys(Login);
         return this;
     }
@@ -30,9 +42,5 @@ public class LoginPage extends BasePage{
         return this;
     }
 
-    public LoginPage loginBtnClick(){
-        loginBtn.click();
-        return this;
-    }
 
 }

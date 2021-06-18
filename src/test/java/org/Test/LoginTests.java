@@ -5,19 +5,16 @@ import Pages.LoginPage;
 import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTest {
-
-    public String validLogin = "@Anton41505806";
-    public String validPassword = "password12345";
-
-    // это для начала, дальше запушу больше
+    final String VALID_LOGIN = "@Anton41505806";
+    final String VALID_PASSWORD = "password12345";
 
     @Test
     public void test1() {
-         new HomePage(driver)
-                .goToLoginPage();
-         new LoginPage(driver)
-                 .enterEmail(validLogin)
-                 .enterPassword(validPassword)
-                 .loginBtnClick();
+        new HomePage(driver)
+                .goToLoginPage()
+                .enterEmail(VALID_LOGIN)
+                .enterPassword(VALID_PASSWORD)
+                .loginBtn()
+                .checkCorrectLogin();
     }
 }

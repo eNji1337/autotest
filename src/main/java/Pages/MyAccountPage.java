@@ -1,4 +1,5 @@
 package Pages;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,14 +16,39 @@ public class MyAccountPage extends BasePage {
     @FindBy(xpath = "//span[text()='Edit profile']")
     WebElement editProfileBtn;
 
+    @FindBy(name = "displayName")
+    WebElement profileNameInput;
 
-    public MyAccountPage profileBtn(){
+    @FindBy(xpath = "//span[text()='Tweet']")
+    WebElement sendTweetBtn;
+
+    @FindBy(className = "DraftEditor-editorContainer")
+    WebElement tweetMsgInput;
+
+    public MyAccountPage tweetMsgInput() {
+        tweetMsgInput.sendKeys("some tweets");
+        return this;
+    }
+
+
+    public MyAccountPage sendTweetBtn() {
+        sendTweetBtn.click();
+        return this;
+    }
+
+    public MyAccountPage profileNameInput() {
+        profileNameInput.sendKeys("someKeys");
+        return this;
+    }
+
+    public MyAccountPage profileBtn() {
         profilebtn.click();
         return this;
     }
-    public MyAccountPage profileEditBtn(){
+
+    public MyAccountPage profileEditBtn() {
         editProfileBtn.click();
         return this;
     }
 
-    }
+}

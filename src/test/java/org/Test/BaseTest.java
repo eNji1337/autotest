@@ -1,5 +1,6 @@
 package org.Test;
 
+import Pages.HomePage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,12 +17,13 @@ public class BaseTest {
     public void wakeUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+        new HomePage(driver);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(10,TimeUnit.SECONDS);
         driver.get("https://twitter.com/");
-    }
 
+    }
     @AfterMethod
     public void quit() {
         driver.quit();
