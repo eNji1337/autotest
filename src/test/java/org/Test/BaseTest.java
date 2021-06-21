@@ -1,6 +1,7 @@
 package org.Test;
 
 import Pages.HomePage;
+import Pages.PropertyHelper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,6 +13,8 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
 
     WebDriver driver;
+    public String validlogin = PropertyHelper.getConf().valid_login();
+    public String validpass = PropertyHelper.getConf().valid_password();
 
     @BeforeMethod
     public void wakeUp() {
